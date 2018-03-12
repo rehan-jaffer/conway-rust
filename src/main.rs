@@ -21,7 +21,7 @@ fn translate(x: i32, y: i32) -> usize {
     return (((y1 * GRID_WIDTH) + x1) % GRID_SIZE) as usize;
 }
 
-fn init_grid() -> Vec<u8> {
+pub extern "C" fn init_grid() -> Vec<u8> {
     let mut rng = rand::thread_rng();
     let mut grid = Vec::new();
     for i in 0..GRID_SIZE {
@@ -31,7 +31,7 @@ fn init_grid() -> Vec<u8> {
     return grid;
 }
 
-fn display_grid(grid: &Vec<u8>) {
+pub extern "C" fn display_grid(grid: &Vec<u8>) {
     for x in 0..GRID_WIDTH {
         for y in 0..GRID_WIDTH {
             print!("{}", grid[((GRID_WIDTH * y) + x) as usize]);
@@ -40,7 +40,7 @@ fn display_grid(grid: &Vec<u8>) {
     }
 }
 
-fn update_grid(grid: &Vec<u8>) -> Vec<u8> {
+pub extern "C" fn update_grid(grid: &Vec<u8>) -> Vec<u8> {
     let mut next_state: Vec<u8> = Vec::new();
 
     for x in 0..GRID_WIDTH {
