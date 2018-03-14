@@ -3,5 +3,4 @@ name = "conway"
 version = "0.1.0"
 authors = ["Rehan Jaffer <ray@thelondonvandal.com>"]
 
-[dependencies]
-rand = "0.4.2"
+[dependencies.rand]
